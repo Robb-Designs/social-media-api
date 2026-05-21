@@ -5,6 +5,7 @@ const mongodb = require('mongodb')
 require('dotenv').config();
 const PORT = process.env.PORT;
 
+
 //MongoDB
 const MongoClient = mongodb.MongoClient;
 const URI = process.env.MONGO_URI;
@@ -22,18 +23,27 @@ app.get('/test', (req, res) => {
 
 app.get('/', async (req, res) => {
 
-    const client = new MongoClient(URI)
+    const client = new MongoClient(URI);
 
     try {
+        //try to connect
+        await client.connect();
 
-      
+        //success resonse json
+        res.json({ message: 'Successful Database Connection' });
 
     } catch (error) {
 
-       
+        console.log(error)
+        //catch response json
+        res.status(500).json({
+            message: 'Failed to connect to the database.'
+        });
     } finally {
+        // close connection
+        await client.close();
 
-       
+
     }
 })
 
