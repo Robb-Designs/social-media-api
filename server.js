@@ -20,6 +20,23 @@ app.get('/test', (req, res) => {
     res.send('Testing...')
 })
 
+app.get('/', async (req, res) => {
+
+    const client = new MongoClient(URI)
+
+    try {
+
+      
+
+    } catch (error) {
+
+       
+    } finally {
+
+       
+    }
+})
+
 
 
 //PORT----------------------------------------------------------------------------------------
