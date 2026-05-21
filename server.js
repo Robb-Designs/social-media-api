@@ -16,7 +16,9 @@ const URI = process.env.MONGO_URI;
 
 
 //ROUTES----------------------------------------------------------------------------------------
-
+app.get('/test', (req, res) => {
+    res.send('Testing...')
+})
 
 
 
