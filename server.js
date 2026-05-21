@@ -5,6 +5,10 @@ const mongodb = require('mongodb')
 require('dotenv').config();
 const PORT = process.env.PORT;
 
+//Google DNS set server
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 
 //MongoDB
 const MongoClient = mongodb.MongoClient;
